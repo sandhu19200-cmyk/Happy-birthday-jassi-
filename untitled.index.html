@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Happy Birthday Choll 🤍</title>
+    <style>
+        * { box-sizing: border-box; user-select: none; -webkit-tap-highlight-color: transparent; }
+        body {
+            margin: 0; padding: 0;
+            background: #120521;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .page {
+            display: none; position: absolute; width: 100%; height: 100%;
+            flex-direction: column; justify-content: center; align-items: center;
+            padding: 20px; text-align: center; opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .page.active { display: flex; opacity: 1; }
+
+        /* Page 1: Heart & Pull */
+        #p1 { background: radial-gradient(circle, #ffccd5 0%, #ff4d6d 100%); color: #4a0e17; }
+        .pulse-heart {
+            font-size: 90px; cursor: pointer;
+            animation: heartbeat 1.2s infinite;
+            filter: drop-shadow(0 10px 20px rgba(255, 0, 85, 0.5));
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        /* Page 2: Wish Grid */
+        #p2 { background: linear-gradient(135deg, #800f2f, #c9184a); }
+        .grid-box {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 20px 0;
+        }
+        .grid-item {
+            background: rgba(255,255,255,0.15); padding: 15px; border-radius: 10px; font-size: 24px;
+        }
+
+        /* Page 3: Tree */
+        #p3 { background: linear-gradient(180deg, #fff0f3, #ffccd5); color: #590d22; }
+
+        /* Page 4: Cake */
+        #p4 { background: linear-gradient(135deg, #240046, #3c096c); }
+        .cake { font-size: 80px; animation: bounce 1.5s infinite alternate; }
+        @keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-15px); } }
+
+        /* Page 5: Balloons & Reasons */
+        #p5 { background: linear-gradient(180deg, #10002b, #240046); justify-content: flex-start; padding-top: 30px; overflow-y: auto; }
+        .reason-box {
+            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,192,203,0.3);
+            padding: 10px 14px; border-radius: 10px; margin: 6px 0; width: 100%; max-width: 320px; text-align: left; font-size: 13px;
+        }
+
+        /* Page 6: Letter */
+        #p6 { background: linear-gradient(135deg, #3c096c, #5a189a); }
+        .envelope {
+            background: #ffb703; width: 260px; height: 160px; border-radius: 6px;
+            display: flex; justify-content: center; align-items: center; cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4); font-size: 28px; font-weight: bold; color: #fff;
+        }
+        .letter-paper {
+            display: none; background: #fff; color: #333; width: 90%; max-width: 330px;
+            height: 70vh; border-radius: 10px; padding: 20px; text-align: left; font-size: 13px;
+            line-height: 1.6; overflow-y: auto; box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+        }
+
+        /* Page 7: Final */
+        #p7 { background: linear-gradient(180deg, #120521, #240046); }
+
+        .btn {
+            margin-top: 20px; background: #ff4d6d; color: white; border: none;
+            padding: 10px 25px; border-radius: 20px; font-size: 14px; font-weight: bold; cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Heart Start -->
+    <div id="p1" class="page active" onclick="goNext()">
+        <div style="font-size: 13px; letter-spacing: 2px; margin-bottom: 20px; font-weight: bold;">A LITTLE SOMETHING, FOR YOU</div>
+        <div class="pulse-heart">❤️</div>
+        <div style="margin-top: 30px; font-size: 13px; opacity: 0.8;">Tap anywhere to open</div>
+    </div>
+
+    <!-- 2. Make a Wish -->
+    <div id="p2" class="page" onclick="goNext()">
+        <div style="font-size: 14px; opacity: 0.8; margin-bottom: 10px;">make a wish...</div>
+        <h1 style="font-size: 38px; margin: 0 0 10px 0;">Happy Birthday</h1>
+        <p style="font-size: 15px; opacity: 0.9;">to someone worth celebrating</p>
+        <div class="grid-box">
+            <div class="grid-item">💖</div><div class="grid-item">✨</div><div class="grid-item">🌸</div>
+        </div>
+        <div style="font-size: 12px; opacity: 0.7; margin-top: 20px;">Tap to continue</div>
+    </div>
+
+    <!-- 3. Tree Animation -->
+    <div id="p3" class="page" onclick="goNext()">
+        <div style="font-size: 13px; opacity: 0.8;">it's officially your day</div>
+        <h2 style="color: #c9184a; font-size: 26px; margin: 5px 0;">Happy Birthday, Choll 🤍</h2>
+        <p style="color: #7b2cbf; font-size: 14px;">and just like that, you're turning 23 ✨</p>
+        <div style="font-size: 70px; margin: 20px 0;">🌳🌸</div>
+        <div style="font-size: 12px; opacity: 0.7;">Tap to continue</div>
+    </div>
+
+    <!-- 4. Cake Baking -->
+    <div id="p4" class="page" onclick="goNext()">
+        <h3 style="color: #ff8fab; font-size: 18px; margin-bottom: 20px;">First things first 🎂</h3>
+        <div class="cake">🎂</div>
+        <p style="color: #ffb703; font-size: 14px; margin-top: 15px;">Baking something sweet...</p>
+        <div style="font-size: 12px; opacity: 0.6; margin-top: 30px;">Tap to continue</div>
+    </div>
+
+    <!-- 5. Reasons / Balloons -->
+    <div id="p5" class="page">
+        <h3 style="color: #ff8fab; margin: 10px 0 5px 0;">Reasons you're loved 🎈</h3>
+        <p style="font-size: 11px; opacity: 0.7; margin-bottom: 10px;">Each one holds a special reason</p>
+        
+        <div class="reason-box"><b style="color:#ff8fab; font-size:10px;">REASON NO. 1</b><br>Life me lge jb Tum ekli ho muje yaad kr lena 🫂</div>
+        <div class="reason-box"><b style="color:#ff8fab; font-size:10px;">REASON NO. 2</b><br>You laugh is my favourite thing sod don't be sad ✨</div>
+        <div class="reason-box"><b style="color:#ff8fab; font-size:10px;">REASON NO. 3</b><br>U are my favourite person</div>
+        <div class="reason-box"><b style="color:#ff8fab; font-size:10px;">REASON NO. 4</b><br>You make ordinary days feel special</div>
+        <div class="reason-box"><b style="color:#ff8fab; font-size:10px;">REASON NO. 5</b><br>Ir haa badaam khaya kr 🤌</div>
+        
+        <button class="btn" onclick="goNext()">Continue</button>
+    </div>
+
+    <!-- 6. Letter -->
+    <div id="p6" class="page">
+        <div id="env" class="envelope" onclick="openEnv()">C</div>
+        <div id="letter" class="letter-paper">
+            <h4 style="color: #7b2cbf; margin-top:0;">Dear Choll 🤍,</h4>
+            <p>I keep thinking about how lucky I got with you. You have seen me at my worst and stayed any way, and I do not say thank u nearly enough for that 🤍. This year, I hope life is gentle with you...</p>
+            <p>Every year I try to find the perfect words and every year I fall short, so here is the honest version. You make my most ordinary days feel worth remembering 🧁.</p>
+            <p style="color: #c9184a; font-weight: bold;">Happy birthday, my favourite person...</p>
+            <p style="text-align: right; font-style: italic; margin-bottom: 5px;">With all my love,<br><b>— Guri</b></p>
+            <button class="btn" style="width:100%; margin-top:5px;" onclick="goNext()">Continue</button>
+        </div>
+    </div>
+
+    <!-- 7. Finale -->
+    <div id="p7" class="page">
+        <h1 style="font-size: 30px; color: #ff8fab; margin-bottom: 10px;">HAPPY BIRTHDAY<br>Choll 🤍!</h1>
+        <div style="font-size: 60px; margin: 15px 0;">🌷🐈‍⬛🎉</div>
+        <p style="font-size: 14px; opacity: 0.9;">Hope you have the best day ever!</p>
+    </div>
+
+    <script>
+        let cur = 1;
+        const total = 7;
+        function goNext() {
+            if(cur === 6 && document.getElementById('letter').style.display !== 'block') return;
+            if(cur < total) {
+                document.getElementById('p' + cur).classList.remove('active');
+                cur++;
+                document.getElementById('p' + cur).classList.add('active');
+            }
+        }
+        function openEnv() {
+            document.getElementById('env').style.display = 'none';
+            document.getElementById('letter').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
